@@ -26,8 +26,15 @@ test("Renders emoji list without crash", () => {
 
 // Filter emoji by user input
 test("Filter emoji by user input", () => {
-    render(<App />);
-    const inputElement = document.getElementsByTagName("input");
-    userEvent.type(inputElement[0], "Cricket");
-    expect(screen.getByText("Cricket"))
+  render(<App />);
+  const inputElement = document.getElementsByTagName("input");
+  userEvent.type(inputElement[0], "Cricket");
+  expect(screen.getByText("Cricket"));
+});
+
+// Check copy of emoji property
+test("Check copy of emoji property", () => {
+  render(<App />);
+  const clickedItem = screen.getByTestId("all-emojis");
+  userEvent.click(clickedItem);
 });
